@@ -50,7 +50,11 @@ dependencies:
   # Local cache
   shared_preferences: ^2.0.15
 
+  # Bloc / Cubit for state managment
   flutter_bloc: ^8.1.1
+
+  # DI
+  get_it: ^7.2.0
 
 
 dev_dependencies:
