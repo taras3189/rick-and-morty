@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty/common/app_colors.dart';
+import 'package:rick_and_morty/feature/domain/entities/person_entity.dart';
 import 'package:rick_and_morty/feature/presentation/widgets/person_cache_image_widget.dart';
-import '../../../common/app_colors.dart';
-import '../../domain/entities/person_entity.dart';
 
 
 class PersonDetailPage extends StatelessWidget {
