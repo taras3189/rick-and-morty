@@ -4,7 +4,7 @@ import 'package:rick_and_morty/core/usecases/usecase.dart';
 import 'package:rick_and_morty/feature/domain/repositories/person_repository.dart';
 import '../../../core/error/failure.dart';
 import '../entities/person_entity.dart';
-import 'package:meta/meta.dart';
+
 
 
 class GetAllPersons extends UseCase<List<PersonEntity>, PagePersonParams>{
@@ -12,6 +12,7 @@ class GetAllPersons extends UseCase<List<PersonEntity>, PagePersonParams>{
 
   GetAllPersons(this.personRepository);
 
+  @override
   Future<Either<Failure, List<PersonEntity>>> call(PagePersonParams params) async {
     return await personRepository.getAllPersons(params.page);
   }

@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
-import 'package:rick_and_morty/core/error/exception.dart';
-import 'package:rick_and_morty/feature/data/models/person_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../core/error/exception.dart';
+import '../models/person_model.dart';
 
 abstract class PersonLocalDataSource {
   /// Gets the cached [List<PersonModel>] which was gotten the last time
@@ -23,10 +23,10 @@ class PersonLocalDataSourceImpl implements PersonLocalDataSource {
 
   PersonLocalDataSourceImpl({required this.sharedPreferences});
 
-
   @override
   Future<List<PersonModel>> getLastPersonsFromCache() {
-    final jsonPersonsList = sharedPreferences.getStringList(CACHED_PERSONS_LIST);
+    final jsonPersonsList =
+    sharedPreferences.getStringList(CACHED_PERSONS_LIST);
     if (jsonPersonsList!.isNotEmpty) {
       print('Get Persons from Cache: ${jsonPersonsList.length}');
       return Future.value(jsonPersonsList
@@ -40,7 +40,7 @@ class PersonLocalDataSourceImpl implements PersonLocalDataSource {
   @override
   Future<List<String>> personsToCache(List<PersonModel> persons) {
     final List<String> jsonPersonsList =
-        persons.map((person) => json.encode(person.toJson())).toList();
+    persons.map((person) => json.encode(person.toJson())).toList();
 
     sharedPreferences.setStringList(CACHED_PERSONS_LIST, jsonPersonsList);
     print('Persons to write Cache: ${jsonPersonsList.length}');
